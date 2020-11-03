@@ -54,7 +54,7 @@
                 <tbody>
                     <tr>
                         <td width="190" style="height:120px;border: 1px solid black !important;background: #FF6600 !important;"><span id="topbox" style="font-size:45px;text-transform:uppercase;margin:0px;"></span></td>
-                        <td rowspan="2" style="background-color:#FFF;border: 1px solid black !important;" width="153"><span id="diamonds" style-"text-transform:uppercase;margin:0px;"=""></span></td>
+                        <td rowspan="2" style="background-color:#FFF;border: 1px solid black !important;text-align:center" width="153"><span id="diamonds" style-"text-transform:uppercase;margin:0px;"=""></span></td>
                     </tr>
                     <tr>
                         <td style="height: 120px;border: 1px solid black !important;background: #FF6600 !important;"><span id="middlebox" style="font-size:45px;text-transform:uppercase;margin:0px;"></span></td>
@@ -936,8 +936,8 @@ function getImageUrl(the_id){
 // function to show image on the screen
 function showImageOnScreen(the_id){
   img_url = getImageUrl(the_id);
-  img = "<img src='" + img_url + "'/>";
-  showInScreen(img, "cmplogo");
+  img = "<img src='" + img_url + "' width='200'/>";
+  showOnScreen(img, "diamonds");
 }
 
 // function for showing values on the screen
