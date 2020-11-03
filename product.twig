@@ -888,24 +888,60 @@ $(document).ready(function () {
 <!-- 
 // added by shpetim haxhiu
 $(document).ready(function(){
- // topbox el
- $('input[name="option[232]"]').attr('onkeyup','showInScreen(this.value, "topbox")');
+
+  // diamond images
+  diamond_images = [
+    { "id": "120", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/organic-peroxide-150x163.jpg" },
+    { "id": "123", "url" : "https://designedforsafety.co.uk/image/cache/no_image-150x163.jpg" },
+    { "id": "121", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/oxidizing-agent-150x163.jpg" },
+    { "id": "119", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/toxic-150x163.jpg" },
+    { "id": "117", "url" : "https://designedforsafety.co.uk/image/cache/no_image-150x163.jpg" },
+    { "id": "110", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/corrosive-150x163.jpg" },
+    { "id": "109", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/flammable-liquid-150x163.jpg" },
+    { "id": "112", "url" : "https://designedforsafety.co.uk/image/cache/no_image-150x163.jpg" },
+    { "id": "115", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/flammable-solid-150x163.jpg" },
+    { "id": "108", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/spontaneously-combustable-150x163.jpg" },
+    { "id": "118", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/infectious-substance-150x163.jpg" },
+    { "id": "122", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/other-2-150x163.jpg" },
+    { "id": "111", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/corrosive-150x163.jpg" },
+    { "id": "113", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/toxic-gas-150x163.jpg" },
+    { "id": "114", "url" : "https://designedforsafety.co.uk/image/cache/data/Hazchem-Label-Diamonds/radioactive-150x163.jpg "}
+
+  ];
+  
+  // topbox el
+  $('input[name="option[232]"]').attr('onkeyup','showOnScreen(this.value, "topbox")');
+  $('input[name="option[232]"]').attr('maxlength','3');
  
-// middlebox el
-$('input[name="option[233]"]').attr('onkeyup','showInScreen(this.value, "middlebox")');
+  // middlebox el
+  $('input[name="option[233]"]').attr('onkeyup','showOnScreen(this.value, "middlebox")');
+  $('input[name="option[233]"]').attr('maxlength','4');
 
-//specialist advice el
-$('input[name="option[234]"]').attr('onkeyup','showInScreen(this.value, "spadvice")');
+  //specialist advice el
+  $('input[name="option[234]"]').attr('onkeyup','showOnScreen(this.value, "spadvice")');
 
-// diamond selector - todo
-
-
-
+  // diamond selector - todo
+  $('select[name="option[235]"]').attr('onchange','showImageOnScreen(this.value)');
 
 });
 
+// function for getting the image url
+function getImageUrl(the_id){
+
+  // find and return image url
+  the_image = diamond_images.find(the_image => the_image.id === the_id);
+  return the_image.url;
+}
+
+// function to show image on the screen
+function showImageOnScreen(the_id){
+  img_url = getImageUrl(the_id);
+  img = "<img src='" + img_url + "'/>";
+  showInScreen(img, "cmplogo");
+}
+
 // function for showing values on the screen
-function showInScreen(value, place){
+function showOnScreen(value, place){
     $("#" + place).html(value);
 }
 --></script>
